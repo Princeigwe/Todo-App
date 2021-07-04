@@ -7,4 +7,6 @@
 
     <string name="notes">Notes</string>
     <string name="fab">FAB</string>
+    <string name="add">ADD</string>
+    <string name="cancel">CANCEL</string>
 </resources>
