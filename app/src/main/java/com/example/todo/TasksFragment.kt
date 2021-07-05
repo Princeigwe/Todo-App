@@ -52,7 +52,7 @@ class TasksFragment : Fragment(), TaskAdapter.OnItemClickListener {
         itemTouchHelper.attachToRecyclerView(recyclerView)
         addData()
         super.onViewCreated(view, savedInstanceState)
-        val clearTask: Button = view.findViewById(R.id.clear_button)
+        val clearTask = view.findViewById<Button>(R.id.clear_button)
         val taskFab = view.findViewById<FloatingActionButton>(R.id.task_fab)
 
         taskFab.setOnClickListener{
@@ -63,13 +63,19 @@ class TasksFragment : Fragment(), TaskAdapter.OnItemClickListener {
             addTaskDialogView.findViewById<Button>(R.id.add_task).setOnClickListener{
                 val taskInput: EditText = addTaskDialogView.findViewById(R.id.task_input)
                 val taskname = taskInput.text.toString()
-                taskAdapter.addTaskItem(taskname)
+                if (taskname == null || taskname == ""){
+                    Toast.makeText(activity, "Add new task", Toast.LENGTH_LONG).show()
+                }
+                else{
+                    taskAdapter.addTaskItem(taskname)
+                }
                 alertDialog.dismiss()
             }
             addTaskDialogView.findViewById<Button>(R.id.cancel_task).setOnClickListener {
                 alertDialog.dismiss()
             }
         }
+
         clearTask.setOnClickListener {
             taskAdapter.clearTasks()
         }
