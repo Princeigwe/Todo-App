@@ -6,22 +6,45 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".TasksFragment">
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tasks_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="60dp"
-        android:text="@string/tasks"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <RelativeLayout
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/relative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tasks_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="60dp"
+            android:text="@string/tasks"
+            android:textSize="50sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/clear_button"
+            android:background="@android:color/transparent"
+            android:text="@string/clearAll"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:layout_toEndOf="@id/tasks_title"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="75dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/tasks_recyclerView"
         android:layout_width="match_parent"
-        app:layout_constraintTop_toBottomOf="@id/tasks_title"
+        app:layout_constraintTop_toBottomOf="@id/relative"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="55dp"
         android:layout_height="0dp" />

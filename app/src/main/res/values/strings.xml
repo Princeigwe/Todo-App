@@ -4,6 +4,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="tasks">Tasks</string>
     <string name="add_task">Add Task</string>
+   <string name="clearAll">clear</string>
 
     <string name="notes">Notes</string>
     <string name="fab">FAB</string>

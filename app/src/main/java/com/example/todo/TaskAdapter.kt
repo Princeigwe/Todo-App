@@ -54,6 +54,12 @@ class TaskAdapter(val listener: OnItemClickListener): RecyclerView.Adapter<Recyc
         notifyItemChanged(i)
     }
 
+    fun clearTasks(){
+        taskItems.clear()
+        notifyItemRangeRemoved(0, taskItems.size)
+        notifyDataSetChanged()
+    }
+
     inner class TaskViewHolder(itemView: View):RecyclerView.ViewHolder(itemView), View.OnClickListener{
         private var taskName: TextView = itemView.findViewById(R.id.task_name)
         private var taskCheckBox: CheckBox = itemView.findViewById(R.id.task_checkbox)

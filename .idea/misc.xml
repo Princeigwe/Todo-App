@@ -8,7 +8,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.17916666666666667" />
         <entry key="app/src/main/res/layout/add_task_dialog.xml" value="0.3297180043383948" />
         <entry key="app/src/main/res/layout/fragment_notes.xml" value="0.17916666666666667" />
-        <entry key="app/src/main/res/layout/fragment_tasks.xml" value="0.17916666666666667" />
+        <entry key="app/src/main/res/layout/fragment_tasks.xml" value="0.33" />
         <entry key="app/src/main/res/layout/note_item.xml" value="0.33" />
         <entry key="app/src/main/res/layout/task_item.xml" value="0.15925925925925927" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.17916666666666667" />
