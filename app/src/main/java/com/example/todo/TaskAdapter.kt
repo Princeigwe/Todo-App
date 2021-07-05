@@ -1,10 +1,10 @@
 package layout
 
 import android.graphics.Paint
+import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -38,15 +38,23 @@ class TaskAdapter(val listener: OnItemClickListener): RecyclerView.Adapter<Recyc
     override fun getItemCount(): Int {
         return taskItems.size
     }
+
     fun submitList(taskList: MutableList<Task>){
         taskItems = taskList
     }
+
+    fun addTaskItem(taskName: String){
+        taskItems.add(0,Task(taskName))
+        notifyDataSetChanged()
+        notifyItemInserted(0)
+    }
+
     fun deleteTaskItem(i: Int){
         taskItems.removeAt(i)
         notifyItemChanged(i)
     }
 
-   inner class TaskViewHolder(itemView: View):RecyclerView.ViewHolder(itemView), View.OnClickListener{
+    inner class TaskViewHolder(itemView: View):RecyclerView.ViewHolder(itemView), View.OnClickListener{
         private var taskName: TextView = itemView.findViewById(R.id.task_name)
         private var taskCheckBox: CheckBox = itemView.findViewById(R.id.task_checkbox)
 

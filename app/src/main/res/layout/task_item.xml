@@ -15,7 +15,6 @@
     app:cardPreventCornerOverlap="true">
 
     <RelativeLayout
-        android:id="@+id/note_info"
         android:layout_width="match_parent"
         android:padding="5dp"
         android:layout_height="match_parent">

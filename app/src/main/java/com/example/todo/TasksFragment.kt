@@ -1,14 +1,20 @@
 package com.example.todo
 
+import android.app.AlertDialog
 import android.os.Bundle
+import android.text.Editable
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import layout.TaskAdapter
 
 // TODO: Rename parameter arguments, choose names that match
@@ -46,6 +52,23 @@ class TasksFragment : Fragment(), TaskAdapter.OnItemClickListener {
         itemTouchHelper.attachToRecyclerView(recyclerView)
         addData()
         super.onViewCreated(view, savedInstanceState)
+        val taskFab = view.findViewById<FloatingActionButton>(R.id.task_fab)
+
+        taskFab.setOnClickListener{
+            val addTaskDialogView = LayoutInflater.from(activity).inflate(R.layout.add_task_dialog, null)
+            val alertDialogBuilder = AlertDialog.Builder(activity)
+                .setView(addTaskDialogView)
+            val alertDialog = alertDialogBuilder.show()
+            addTaskDialogView.findViewById<Button>(R.id.add_task).setOnClickListener{
+                val taskInput: EditText = addTaskDialogView.findViewById(R.id.task_input)
+                val taskname = taskInput.text.toString()
+                taskAdapter.addTaskItem(taskname)
+                alertDialog.dismiss()
+            }
+            addTaskDialogView.findViewById<Button>(R.id.cancel_task).setOnClickListener {
+                alertDialog.dismiss()
+            }
+        }
     }
     private fun addData(){
         val data = TaskDataSource.createTaskData()
